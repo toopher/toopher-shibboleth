@@ -10,6 +10,6 @@
 </head>
 <body>
 
-<iframe id="toopher_iframe" src="$iframeRequestURL" toopher_postback="$iframePostbackURL" width="400" height="300" frameborder="0"/>
+<iframe id="toopher_iframe" src="$iframeRequestURL" toopher_postback="$iframePostbackURL" width="600" height="300" frameborder="0"/>
 </body>
 </html>
