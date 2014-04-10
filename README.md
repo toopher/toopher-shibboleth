@@ -1,4 +1,4 @@
-mcb-toopher
+Toopher Shibboleth
 ===========
 
 Shibboleth Multi-Context Broker Toopher Authentication.  This is a plugin for the 
