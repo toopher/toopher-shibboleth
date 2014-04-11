@@ -8,7 +8,7 @@ It provides support for [Toopher](http://www.toopher.com/) second factor authent
 Requirements
 ============
 
-This module requires at least multi-context-broker-1.1.2.jar or later.
+This module requires at least multi-context-broker-1.1.3.jar or later.
 
 Email Reset Attribute
 --------------------

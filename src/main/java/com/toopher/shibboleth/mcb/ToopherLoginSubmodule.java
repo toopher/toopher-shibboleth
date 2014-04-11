@@ -30,6 +30,7 @@ import edu.internet2.middleware.assurance.mcb.authn.provider.MCBLoginServlet;
 import edu.internet2.middleware.assurance.mcb.authn.provider.MCBSubmodule;
 import edu.internet2.middleware.assurance.mcb.authn.provider.MCBUsernamePrincipal;
 import edu.internet2.middleware.assurance.mcb.authn.provider.ui.IDPUIHandler;
+import edu.internet2.middleware.assurance.mcb.exception.UserInitiatedLoginFailureException;
 import edu.internet2.middleware.shibboleth.common.attribute.BaseAttribute;
 import edu.internet2.middleware.shibboleth.idp.authn.AuthenticationException;
 import edu.internet2.middleware.shibboleth.idp.authn.LoginHandler;
@@ -212,7 +213,7 @@ public class ToopherLoginSubmodule implements MCBSubmodule{
 			} else if (authGranted == false){
 				//either authGranted is false or authPending is true
 				log.warn("Principal {} pressed the deny button on their device.");
-				throw new AuthenticationException(principal.getName()+" pressed the deny button on their device");
+				throw new UserInitiatedLoginFailureException();
 			} else {
 				throw new AuthenticationException("Unknown Toopher error");
 			}
