@@ -26,6 +26,8 @@ that you do *not* protect that email account with Toopher
 
 # Configuration
 
+## mcb-spring.xml
+
 Before you begin you must create a requester in the Toopher admin panel.  Then edit the *mcb-spring.xml* file and add the following block.
 
     <bean id="mcb.toopher" class="com.toopher.shibboleth.mcb.ToopherLoginSubmodule">
@@ -44,15 +46,18 @@ Before you begin you must create a requester in the Toopher admin panel.  Then e
         <constructor-arg index="5" value="toopher.vm" />
     </bean>
 
-## On Premesis Toopher
+*Optional* 
 
 If you are not using Toopher's Cloud Service offering and have an on-premises toopher server add an addtional `<constructor-arg>` to the bean
 
     <constructor-arg index="6" value="http://my.toopher.server/" />
 
+
 Next you need to edit the *mcb.Configuration* bean and add a 
 
     <ref bean="mcb.toopher" />
+
+## multi-context-broker.xml
 
 Next you need to edit the *multi-context-broker.xml* file and add the toopher method to the authmethods:
 
@@ -68,6 +73,8 @@ Next, map it to a context in the authnContexts block:
         </context>
 
 ### Note: you need to ensure that you do NOT specify Toopher as a default initial context.  In order to function, the user must already have established their identity to the MCB via another context.
+
+## handler.xml
 
 Finally, edit the *handler.xml* file and add the Toopher context to the list of contexts that the MCB handles.
 
