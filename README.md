@@ -44,6 +44,12 @@ Before you begin you must create a requester in the Toopher admin panel.  Then e
         <constructor-arg index="5" value="toopher.vm" />
     </bean>
 
+## On Premesis Toopher
+
+If you are not using Toopher's Cloud Service offering and have an on-premises toopher server add an addtional `<constructor-arg>` to the bean
+
+    <constructor-arg index="6" value="http://my.toopher.server/" />
+
 Next you need to edit the *mcb.Configuration* bean and add a 
 
     <ref bean="mcb.toopher" />
