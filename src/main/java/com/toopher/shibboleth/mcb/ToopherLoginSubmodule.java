@@ -74,8 +74,27 @@ public class ToopherLoginSubmodule implements MCBSubmodule{
 	 * @param manual Should the users be forced to have toopher's automation disabled (true/false)
 	 * @param emailAttribute the attribute from the attribute-resolver that contains (single-valued) the authoritative email address for the user -- used in resets
 	 * @param loginPage velocity template containing toopher page
+	 * @param apiUrl used for on-prem deployments -- tells us to use the on-prem server & where to find it.
+	 */
+	public ToopherLoginSubmodule(String key, String secret, String challenge, String manual, String emailAttribute, String loginPage, String apiUrl){
+		initialize(key, secret, challenge, manual, emailAttribute, loginPage, apiUrl);
+	}
+	
+	/**
+	 * Constructor
+	 * 
+	 * @param key Consumer Key from toopher requester
+	 * @param secret Consumer Secret from toopher requester
+	 * @param challenge Should the users be forced to do the Toopher Challenge (true/false)
+	 * @param manual Should the users be forced to have toopher's automation disabled (true/false)
+	 * @param emailAttribute the attribute from the attribute-resolver that contains (single-valued) the authoritative email address for the user -- used in resets
+	 * @param loginPage velocity template containing toopher page
 	 */
 	public ToopherLoginSubmodule(String key, String secret, String challenge, String manual, String emailAttribute, String loginPage){
+		initialize(key, secret, challenge, manual, emailAttribute, loginPage, null);
+	}
+	
+	protected void initialize(String key, String secret, String challenge, String manual, String emailAttribute, String loginPage, String apiUrl){
 		consumerKey = key;
 		consumerSecret = secret;
 		toopherChallenge = "true".equalsIgnoreCase(challenge);
@@ -84,7 +103,12 @@ public class ToopherLoginSubmodule implements MCBSubmodule{
 		
 		this.loginPage = loginPage;
 		
-		t = new ToopherIframe(consumerKey, consumerSecret);
+		if(apiUrl == null || apiUrl.equalsIgnoreCase("")){
+			t = new ToopherIframe(consumerKey, consumerSecret);
+		}else{
+			log.info("Using Toopher On-Prem located at {}", apiUrl);
+			t = new ToopherIframe(consumerKey, consumerSecret, apiUrl);
+		}
 		
 		log.debug("Config {}: consumer key:{}, consumer secret:{}, login page: {}, toopherChallenge: {}, toopherManual: {}, user mail attribute: {}", beanName,key, secret, loginPage, challenge, manual, emailAttribute);
 	}
