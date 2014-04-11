@@ -212,7 +212,7 @@ public class ToopherLoginSubmodule implements MCBSubmodule{
 				return result;
 			} else if (authGranted == false){
 				//either authGranted is false or authPending is true
-				log.warn("Principal {} pressed the deny button on their device.");
+				log.warn("Principal {} pressed the deny button on their device.", principal.getName());
 				throw new UserInitiatedLoginFailureException();
 			} else {
 				throw new AuthenticationException("Unknown Toopher error");
