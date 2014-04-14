@@ -93,5 +93,5 @@ for each varying invocation of the module.
 Building From Source
 ====================
 
-To build the module from source, you first have to download and build the Shibboleth Multi Context Broker from https://github.com/Internet2/Shibboleth-Multi-Context-Broker.  Once you have 
+To build the module from source, you first have to download and build the Shibboleth Multi Context Broker from <https://github.com/Internet2/Shibboleth-Multi-Context-Broker>.  Once you have 
 that built and in your local Maven repository, then you can build this module via `mvn package`.
