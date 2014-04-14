@@ -90,3 +90,8 @@ authenction contexts each mapped to an indiviudal invocation of the Toopher MCB 
 invocation of the module should share the same consumer key and secret so the user is not forced to re-pair their device
 for each varying invocation of the module.
 
+Building From Source
+====================
+
+To build the module from source, you first have to download and build the Shibboleth Multi Context Broker from https://github.com/Internet2/Shibboleth-Multi-Context-Broker.  Once you have 
+that built and in your local Maven repository, then you can build this module via `mvn package`.
