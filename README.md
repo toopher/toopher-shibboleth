@@ -80,6 +80,14 @@ Finally, edit the *handler.xml* file and add the Toopher context to the list of 
 
      <AuthenticationMethod>toopher</AuthenticationMethod>
 
+## logging.xml
+
+To activate logging for the Toopher module, add this to your `logging.xml`.
+
+    <logger name="com.toopher.shibboleth">
+        <level value="INFO" />
+    </logger> 
+
 Using Multiple Options
 ======================
 
