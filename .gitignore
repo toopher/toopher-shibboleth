@@ -1,5 +1,7 @@
 /target/
 
+**/.DS_Store
+
 ### https://raw.github.com/github/gitignore/62d6528cb16b198a8387a3398d91e674973006d0/Java.gitignore
 
 *.class
