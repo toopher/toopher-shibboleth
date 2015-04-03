@@ -24,7 +24,7 @@
 		<filtered>false</filtered>
 	</file>
 	<file>
-		<source>src/main/resources/toopher-java-1.0.0-SNAPSHOT-jar-with-dependencies.jar</source>
+		<source>src/main/resources/toopher-java-2.0.0-PREVIEW-jar-with-dependencies.jar</source>
 		<outputDirectory>/</outputDirectory>
 		<filtered>false</filtered>
 	</file>
