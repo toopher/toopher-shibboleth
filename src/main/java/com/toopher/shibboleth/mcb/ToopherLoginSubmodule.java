@@ -37,6 +37,9 @@ import edu.internet2.middleware.assurance.mcb.exception.UserInitiatedLoginFailur
 import edu.internet2.middleware.shibboleth.common.attribute.BaseAttribute;
 import edu.internet2.middleware.shibboleth.idp.authn.AuthenticationException;
 import edu.internet2.middleware.shibboleth.idp.authn.LoginHandler;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.math.BigInteger;
 import java.net.URISyntaxException;
 import java.security.SecureRandom;
@@ -251,7 +254,11 @@ public class ToopherLoginSubmodule implements MCBSubmodule{
 			principal.setFailedLogin("unable to verify signature");
 			return false;
 		} catch (Exception e) {
-			log.warn("RequestError: {0}", e.getMessage());
+			log.warn("RequestError: {}", e.getMessage());
+			StringWriter sw = new StringWriter();
+			e.printStackTrace(new PrintWriter(sw));
+			String exceptionAsString = sw.toString();
+			log.debug(exceptionAsString);
 			principal.setFailedLogin("Error when verifying postback: " + e.getMessage());
 		}
 
