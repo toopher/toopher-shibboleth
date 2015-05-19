@@ -36,9 +36,9 @@ Before you begin you must create a requester in the Toopher admin panel.  Then e
         <!-- consumer secret -->
         <constructor-arg index="1" value="CONSUMER SECRET GOES HERE" />
         <!-- Should we require the user to enter their Challenge drawing enter true or false -->
-        <constructor-arg index="2" value="true" />
+        <constructor-arg index="2" value="false" />
         <!-- Should the user not be allowed to use automation?  true here means disable automation for the user & require them to press the button -->
-        <constructor-arg index="3" value="true" />
+        <constructor-arg index="3" value="false" />
         <!-- The attribute coming from your attribute resolver that contains an email address which Toopher will send reset links to if 
 	the user loses their device -->
         <constructor-arg index="4" value="attribute that contains reset email address" />
